@@ -1,4 +1,4 @@
-# Snapchat Snapscore PLUS
+# Snapchat Snapscore Booster PLUS
 
 Boost your Snapchat Snapscore with ease using this automation script.
 
