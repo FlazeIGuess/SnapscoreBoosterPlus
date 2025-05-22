@@ -2,80 +2,106 @@
 
 Boost your Snapchat Snapscore with ease using this automation script.
 
+---
+
+## 🏁 Quick-Start (Windows)
+
+1. **Install Python 3.9** – [Download the official installer](https://www.python.org/ftp/python/3.9.2/python-3.9.2-amd64.exe) and tick **“Add Python to PATH”** during setup.
+2. **Install all Python dependencies** – simply double-click **`Install Requirements.bat`** (this runs `pip install -r requirements.txt` for you).
+3. **Enable USB debugging** on your Android phone (see the detailed guide below).
+4. **Run the script** – double-click **`run.bat`** (it launches `python main.py` in the correct folder).
+
+> **Tip for macOS / Linux users**
+> *Install dependencies*: `pip install -r requirements.txt`
+> *Run the script*: `python main.py`
+
+---
+
+## ⚠️  Important notice about Android emulators
+
+Running Snapchat inside an Android emulator such as BlueStacks, NoxPlayer or LDPlayer **is extremely unreliable and often fails** – Snapchat actively blocks most virtual devices. Expect login errors, camera crashes or a black screen.
+**Use a real device connected via USB whenever possible.** (ADB + scrcpy are lightweight and require zero installation on the handset.)
+
+You can still try – the legacy instructions remain in a collapsed section below – but **there are no guarantees**.
+
+---
+
 ## Features
 
-- Automates sending snaps to a selected Snapchat shortcut.
-- Customizable delay between actions.
-- Pause and resume the script by moving the mouse.
-- Reset or quit the script from the paused state.
-- Tracks and displays the number of snaps sent.
+* Automates sending snaps to a selected Snapchat shortcut.
+* Customisable delay between actions.
+* Pause and resume the script by moving the mouse.
+* Reset or quit the script from the paused state.
+* Tracks and displays the number of snaps sent.
+
+---
 
 ## How to Use
 
 <details>
-<summary>Using with Android Phone via USB Debugging</summary>
+<summary>Using a real Android phone via USB debugging (recommended)</summary>
 
-1.  **Install Python:** Download and install Python from the official website. Make sure to check the option 'Add Python to PATH' during installation.
-2.  **Install ADB:** Follow a guide online to install ADB for your operating system. Ensure the `adb` command is accessible from your terminal.
-3.  **Install scrcpy:** Install scrcpy. You can usually install it via package managers (e.g., `choco install scrcpy` on Windows, `brew install scrcpy` on macOS, `sudo apt install scrcpy` on Debian/Ubuntu).
-4.  **Enable USB Debugging:** On your Android phone, go to `Settings` -> `About Phone` and tap 'Build number' seven times to enable Developer Options. Then go back to `Settings`, find `Developer Options`, and enable 'USB debugging'.
-5.  **Connect your phone:** Connect your Android phone to your computer via USB.
-6.  **Verify ADB connection:** Open a terminal or command prompt and run `adb devices`. You should see your device listed. If prompted on your phone, allow USB debugging from your computer.
-7.  **Start scrcpy:** Run `scrcpy` in your terminal. This should open a window displaying your phone screen.
-8.  **Install Dependencies:** Navigate to the script's directory in your terminal. Run the following command to install the required Python libraries:
-    ```bash
-    pip install -r requirements.txt
-    ```
-9.  **Run the Script:** Execute the main Python script:
-    ```bash
-    python main.py
-    ```
-10. **Follow On-Screen Instructions:** The script will guide you through the setup:
-    *   Ensure Snapchat is open on your phone (displayed via scrcpy) and you are on the chats page.
-    *   During the calibration phase, the script will ask you to move your mouse to specific buttons (Camera, Take Picture, Send To, Shortcut, Select All, Send Snap Button) displayed in the scrcpy window and press `F` to record their positions.
-    *   Enter the number of people in your Snapchat shortcut.
-    *   Select or enter the desired delay in milliseconds between click actions.
-    *   Enter the delay in seconds to wait after sending a batch of snaps.
-11. **Start Sending:** Navigate to your chats page in Snapchat (via the scrcpy window) and press `F` when prompted to start sending snaps.
-12. **Pause/Resume/Control:**
-    *   The script will automatically pause if you move your mouse.
-    *   Press `F` while paused to resume.
-    *   Press `R` while paused to reset the script (starts calibration again).
-    *   Press `Q` while paused to quit the script.
+1. **Install Python** (see Quick-Start above).
+2. **Install ADB platform tools** – Download the latest package from Google and extract it, or install via e.g. Chocolatey: `choco install adb`.
+3. **Install scrcpy** – e.g. `choco install scrcpy` (Windows), `brew install scrcpy` (macOS) or `sudo apt install scrcpy` (Debian/Ubuntu).
+4. **Enable USB debugging** – On your phone go to *Settings → About phone* and tap *Build number* seven times, then enable *Developer options → USB debugging*.
+   [Video guide](https://www.youtube.com/watch?v=G_Xw3336xLQ).
+5. **Connect the phone** via USB and authorise the PC.
+6. **Verify the connection**: `adb devices` should list your handset.
+7. **Start scrcpy** to mirror the screen.
+8. **Install dependencies** – double-click **`Install Requirements.bat`** **or** run `pip install -r requirements.txt`.
+9. **Run the script** – double-click **`run.bat`** **or** run `python main.py`.
+10. **Follow the on-screen instructions**:
+
+    * Open Snapchat (mirrored in the scrcpy window) and stay on the *Chats* page.
+    * During calibration move the mouse to each button (Camera, Take Picture, Send To, Shortcut, Select All, Send) and press **F** to record its position.
+    * Enter the number of recipients in your Snapchat shortcut.
+    * Choose the click delay (ms) and the rest delay (s) between batches.
+11. **Control keys**:
+
+    * Move the mouse → **pause**.
+    * **F** while paused → resume.
+    * **R** while paused → restart calibration.
+    * **Q** while paused → quit.
 
 </details>
 
 <details>
-<summary>Using with Android Emulator</summary>
+<summary>Using an Android emulator (experimental / not recommended)</summary>
 
-1.  **Install Python:** Download and install Python from the official website. Make sure to check the option 'Add Python to PATH' during installation.
-2.  **Install Dependencies:** Navigate to the script's directory. Run the `Install Requirements.bat` file (for Windows) or `pip install -r requirements.txt` (for other OS) to install the required Python libraries.
-3.  **Install Android Emulator:** Download and install an Android emulator like NoxPlayer.
-4.  **Install and Login to Snapchat:** Download and install the Snapchat app within the emulator and log in to your account.
-5.  **Create Shortcut:** On the Snapchat app within the emulator, create a shortcut with the people you want to send snaps to.
-6.  **Run the Script:** Execute the main Python script:
-    ```bash
-    python main.py
-    ```
-7.  **Follow On-Screen Instructions:** The script will guide you through the setup:
-    *   Ensure Snapchat is open in the emulator and you are on the chats page.
-    *   During the calibration phase, the script will ask you to move your mouse to specific buttons (Camera, Take Picture, Send To, Shortcut, Select All, Send Snap Button) displayed in the emulator window and press `F` to record their positions.
-    *   Enter the number of people in your Snapchat shortcut.
-    *   Select or enter the desired delay in milliseconds between click actions.
-    *   Enter the delay in seconds to wait after sending a batch of snaps.
-8.  **Start Sending:** Navigate to your chats page in Snapchat (within the emulator) and press `F` when prompted to start sending snaps.
-9.  **Pause/Resume/Control:**
-    *   The script will automatically pause if you move your mouse.
-    *   Press `F` while paused to resume.
-    *   Press `R` while paused to reset the script (starts calibration again).
-    *   Press `Q` while paused to quit the script.
+> **Warning:** Snapchat heavily restricts emulator usage – this may not work at all.
+
+1. **Install Python** (see Quick-Start).
+2. **Install dependencies** – double-click **`Install Requirements.bat`** **or** run `pip install -r requirements.txt`.
+3. **Install an Android emulator** (e.g. NoxPlayer).
+4. **Install & log in to Snapchat** inside the emulator.
+5. **Create a Shortcut** in Snapchat with the desired recipients.
+6. **Run the script** – double-click **`run.bat`** **or** run `python main.py`.
+7. **Follow the same calibration and control steps** as described for a real device.
 
 </details>
 
+---
+
+## Helpful Downloads
+
+| Purpose                    | Link                                                                                                                             |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Python 3.9.2 (Windows x64) | [https://www.python.org/ftp/python/3.9.2/python-3.9.2-amd64.exe](https://www.python.org/ftp/python/3.9.2/python-3.9.2-amd64.exe) |
+| ADB platform tools         | [https://developer.android.com/tools/releases/platform-tools](https://developer.android.com/tools/releases/platform-tools)       |
+| scrcpy                     | [https://github.com/Genymobile/scrcpy](https://github.com/Genymobile/scrcpy)                                                     |
+| USB debugging tutorial     | [https://www.youtube.com/watch?v=G\_Xw3336xLQ](https://www.youtube.com/watch?v=G_Xw3336xLQ)                                      |
+
+---
+
 ## Disclaimer
 
-This script was created for educational purposes. Use at your own risk. The developer is not responsible for any consequences resulting from the use of this script.
+This script is provided **for educational purposes only**. Use it at your own risk. The developer accepts no responsibility for any account bans, data loss or other consequences arising from its use.
+
+---
 
 ## Development
 
-Developed by @FlazeIGuess with help of @useragents on Github.
+Created by **@FlazeIGuess** with help from **@useragents** on GitHub.
+
+Feel free to open issues or pull requests to improve the project.
