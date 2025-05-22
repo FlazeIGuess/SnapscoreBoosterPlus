@@ -193,18 +193,17 @@ class snapchat:
         while True:
             if keyboard.is_pressed("f"):
                 break
-            # Check for mouse movement and handle pause/resume
             current_mouse_pos = pyautogui.position()
             if self.last_mouse_pos is not None:
-                # Define a threshold for mouse movement (e.g., 5 pixels)
+
                 move_threshold = 5
                 if not self.paused and (abs(current_mouse_pos.x - self.last_mouse_pos.x) > move_threshold or abs(current_mouse_pos.y - self.last_mouse_pos.y) > move_threshold):
                     self.paused = True
                     self.print_console("Mouse moved. Script paused. Press F to resume, R to reset, or Q to quit.", status="Paused")
-                    # Wait for F key press to resume
+                
                     while self.paused:
                         if keyboard.is_pressed("f"):
-                            # Add a small delay to avoid immediate re-pausing
+                    
                             time.sleep(0.5)
                             self.paused = False
                             self.print_console("Resuming script.", status="Resuming")
@@ -221,17 +220,17 @@ class snapchat:
                             self._should_quit = True
                             self.print_console("Quitting script...", status="Console")
                             break
-                        time.sleep(0.1) # Check for F press frequently
+                        time.sleep(0.1) 
             self.last_mouse_pos = current_mouse_pos
 
-            # Only send snap if not paused
+            
             if not self.paused:
                 self.send_snap(shortcut_users)
-                time.sleep(self.post_snap_delay) # Wait after sending a batch
+                time.sleep(self.post_snap_delay) 
 
-            # Check if we should quit or reset after the pause loop
+            
             if self._should_quit or self._should_reset:
-                break # Break the outer main loop
+                break #
 
         self.print_console(f"Finished sending {self.sent_snaps} snaps.")
 
@@ -240,8 +239,8 @@ obj = snapchat()
 while True:
     obj.main()
     if not obj._should_reset:
-        break # Exit the script if not resetting (i.e., quit or finished naturally)
-    # If _should_reset is True, the loop continues to call obj.main() again
+        break 
+    
 
 if obj._should_quit:
     sys.exit()
