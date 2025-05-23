@@ -19,15 +19,30 @@ Choose the setup method that suits you best:
 
 ---
 
-### 🌐 Option 1: Snapchat Web or Microsoft Store App (Fast & Simple)
+### 🌐 Option 1: Snapchat Web or Microsoft Store App (Simple & Accessible)
 
-1. **Use Snapchat Web**  
-   Go to [Snapchat Web](https://web.snapchat.com/), log in, and keep the window open.  
-   This version has limited functionality but works for manual or automated Snapscore boosting.
+1. **Download this script**  
+   Clone the repo or [download it as ZIP](https://github.com/FlazeIGuess/Snapchat-Snapscore-Booster-PLUS/archive/refs/heads/main.zip) and extract it.
 
-2. **Use Snapchat from Microsoft Store**  
-   Install [Snapchat from the Microsoft Store](https://apps.microsoft.com/store/detail/snapchat/9NL4J1B0Q61N).  
-   This version is more stable than Android emulators and can be controlled using automation tools like AutoHotkey or this script (with slight adaptations).  
+2. **Install Python 3.9**  
+   [Download for Windows](https://www.python.org/ftp/python/3.9.2/python-3.9.2-amd64.exe)  
+   During setup, make sure to check **“Add Python to PATH”**.
+
+3. **Install Python dependencies**  
+   Double-click `Install Requirements.bat` or run `pip install -r requirements.txt` inside the script folder.
+
+4. **Choose your Snapchat platform**:
+   - **Snapchat Web**: Go to [web.snapchat.com](https://web.snapchat.com/), log in, and leave the window open.
+   - **Microsoft Store App**: Install Snapchat from the [Microsoft Store](https://apps.microsoft.com/store/detail/snapchat/9NL4J1B0Q61N).
+
+5. **Run the script**  
+   Launch `run.bat` or run `python main.py`.
+
+6. **Calibrate mouse positions**  
+   Hover the cursor over the required buttons in the Snapchat interface (Camera, Snap, Send To, etc.) and press **F** to save each position.
+
+7. **Follow the prompts**  
+   Enter the number of recipients, timing preferences, and begin boosting your Snapscore.
    > ⚠️ Calibration may need to be adjusted manually due to UI differences.
    Recommendation:
    - Because Snapchat web doesn't have an extra Chat site just use the first and second calibration on the shutter button, everything else should be the same as Android.
