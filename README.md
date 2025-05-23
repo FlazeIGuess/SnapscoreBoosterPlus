@@ -3,6 +3,15 @@
 Boost your Snapchat Snapscore with ease using this automation script.
 
 ---
+## ✨ Features
+
+* Automates sending snaps to a selected Snapchat shortcut
+* Adjustable delays between actions
+* Mouse-movement pause control
+* Resume, restart or quit from paused mode
+* Snap counter included
+
+---
 
 ## 🚀 Quick Start Options
 
@@ -99,15 +108,6 @@ For best results, use a real Android phone.
 
 ---
 
-## ✨ Features
-
-* Automates sending snaps to a selected Snapchat shortcut
-* Adjustable delays between actions
-* Mouse-movement pause control
-* Resume, restart or quit from paused mode
-* Snap counter included
-
----
 
 ## 📦 Helpful Downloads
 
