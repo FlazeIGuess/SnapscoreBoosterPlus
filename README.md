@@ -29,6 +29,9 @@ Choose the setup method that suits you best:
    Install [Snapchat from the Microsoft Store](https://apps.microsoft.com/store/detail/snapchat/9NL4J1B0Q61N).  
    This version is more stable than Android emulators and can be controlled using automation tools like AutoHotkey or this script (with slight adaptations).  
    > ⚠️ Calibration may need to be adjusted manually due to UI differences.
+   Recommendation:
+   - Because Snapchat web doesn't have an extra Chat site just use the first and second calibration on the shutter button, everything else should be the same as Android.
+   
 
 These alternatives are easier to set up than emulators and work well for simple Snapscore automation.
 
