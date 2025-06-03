@@ -13,7 +13,6 @@ Boost your Snapchat Snapscore with ease using this automation script.
 
 ---
 ## Script controls
-   - Move mouse → Pause  
    - Press **CTRL+Q** → Pause (global hotkey, works anytime)
    - Press **F** while paused → Resume  
    - Press **R** while paused → Restart calibration  
