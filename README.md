@@ -1,4 +1,4 @@
-# Snapchat Snapscore Booster PLUS
+# Snapchat Snapscore Booster PLUS v1.1
 
 Boost your Snapchat Snapscore with ease using this automation script.
 
@@ -26,7 +26,7 @@ Choose the setup method that suits you best:
 
 2. **Install Python 3.9**  
    [Download for Windows](https://www.python.org/ftp/python/3.9.2/python-3.9.2-amd64.exe)  
-   During setup, make sure to check **“Add Python to PATH”**.
+   During setup, make sure to check **"Add Python to PATH"**.
 
 3. **Install Python dependencies**  
    Double-click `Install Requirements.bat` or run `pip install -r requirements.txt` inside the script folder.
@@ -58,7 +58,7 @@ These alternatives are easier to set up than emulators and work well for simple 
    Clone the repository or [download it as ZIP](https://github.com/FlazeIGuess/Snapchat-Snapscore-Booster-PLUS/archive/refs/heads/main.zip) and extract it.
 
 2. **Install Python 3.9**  
-   [Download here](https://www.python.org/ftp/python/3.9.2/python-3.9.2-amd64.exe) and check **“Add Python to PATH”** during setup.
+   [Download here](https://www.python.org/ftp/python/3.9.2/python-3.9.2-amd64.exe) and check **"Add Python to PATH"** during setup.
 
 3. **Install dependencies**  
    Double-click `Install Requirements.bat` or run `pip install -r requirements.txt` in the script folder.
@@ -74,7 +74,7 @@ These alternatives are easier to set up than emulators and work well for simple 
 
 6. **Connect your phone via USB** and allow debugging when prompted.
 
-7. **Start scrcpy** to mirror your phone’s screen.
+7. **Start scrcpy** to mirror your phone's screen.
 
 8. **Run the script**  
    Double-click `run.bat` or run `python main.py` in the script directory.
@@ -86,9 +86,11 @@ These alternatives are easier to set up than emulators and work well for simple 
 
 10. **Script controls**
    - Move mouse → Pause  
+   - Press **CTRL+Q** → Pause (global hotkey, works anytime)
    - Press **F** while paused → Resume  
    - Press **R** while paused → Restart calibration  
-   - Press **Q** while paused → Quit
+   - Press **Q** while paused → Quit (works only when paused)
+   - Press **CTRL+C** → Force quit (works anytime by closing console or sending interrupt signal)
 
 ---
 

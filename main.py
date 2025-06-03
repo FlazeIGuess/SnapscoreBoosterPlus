@@ -15,7 +15,7 @@ ascii_text = """
     | |_____ |       ||       ||   |_| |  |   |_| ||   |    |  |_|  || |_____ 
     |_____  ||  _    ||       ||    ___|  |    ___||   |___ |       ||_____  |
      _____| || | |   ||   _   ||   |      |   |    |       ||       | _____| |
-    |_______||_|  |__||__| |__||___|      |___|    |_______||_______||_______|
+    |_______||_|  |__||__| |__||___|      |___|    |_______||_______||_______| v1.1
     
     by @FlazeIGuess with help of @useragents on Github                                                                                        
 """
@@ -31,7 +31,7 @@ class snapchat:
     def __init__(self):
         self.sent_snaps = 0
         self.delay = 1.3
-        self.post_snap_delay = 4 # Default value
+        self.post_snap_delay = 4 
         self.paused = False
         self.last_mouse_pos = None
         self._should_quit = False
@@ -77,34 +77,44 @@ class snapchat:
                 break
     
     def send_snap(self, shortcut_users):
+        self.sent_snaps += shortcut_users 
+        
         self.update_title(shortcut_users)
+        self.print_console(f"Sent {self.sent_snaps} total snaps so far. | Info: Press CTRL+Q to pause.", status="Progress")
+
+        
         pyautogui.moveTo(self.switch_to_camera)
+        if not self.interruptible_sleep(self.delay): return False 
         pyautogui.click()
-        time.sleep(self.delay)
+
         pyautogui.moveTo(self.take_picture)
+        if not self.interruptible_sleep(self.delay): return False
         pyautogui.click()
-        time.sleep(self.delay)
+    
         pyautogui.moveTo(self.send_to)
+        if not self.interruptible_sleep(self.delay): return False
         pyautogui.click()
-        time.sleep(self.delay)
+
         pyautogui.moveTo(self.shortcut)
+        if not self.interruptible_sleep(self.delay): return False
         pyautogui.click()
-        time.sleep(self.delay)
+
         pyautogui.moveTo(self.select_all)
+        if not self.interruptible_sleep(self.delay): return False
         pyautogui.click()
-        time.sleep(self.delay)
+
         pyautogui.moveTo(self.send_snap_button)
+        if not self.interruptible_sleep(self.delay): return False
         pyautogui.click()
-        self.sent_snaps += shortcut_users
-        self.update_title(shortcut_users)
-        self.print_console(f"Sent {self.sent_snaps} total snaps so far.", status="Progress")
+
+        return True 
     
     def update_title(self, shortcut_users):
         now = time.time()
         elapsed = str(now - self.started_time).split(".")[0]
         sent_snaps = self.sent_snaps
         if onLinux() == False:
-            ctypes.windll.kernel32.SetConsoleTitleW(f"Snapchat Score PLUS| Sent Snaps: {sent_snaps} | Elapsed: {elapsed}s | Developed by @FlazeIGuess with help of @useragents on Github")
+            ctypes.windll.kernel32.SetConsoleTitleW(f"Snapchat Score PLUS v1.1| Sent Snaps: {sent_snaps} | Elapsed: {elapsed}s | Developed by @FlazeIGuess with help of @useragents on Github")
 
     def print_console(self, arg, status = "Console"):
         print(f"\n       {Fore.WHITE}[{Fore.RED}{status}{Fore.WHITE}] {arg}")
@@ -112,7 +122,7 @@ class snapchat:
     def main(self):
         if onLinux() == False:
             os.system("cls")
-            ctypes.windll.kernel32.SetConsoleTitleW("Snapchat Score PLUS| Developed by @FlazeIGuess with help of @useragents on Github")
+            ctypes.windll.kernel32.SetConsoleTitleW("Snapchat Score PLUS v1.1| Developed by @FlazeIGuess with help of @useragents on Github")
         else:
             os.system("clear")
 
@@ -189,10 +199,13 @@ class snapchat:
             os.system("clear")
         print(Fore.RED + ascii_text)
         self.print_console("Sending snaps...")
+        print(f"\n       {Fore.WHITE}[{Fore.RED}Info{Fore.WHITE}] You can pause the script at any time by pressing CTRL+Q (even if this window is not focused).")
         self.started_time = time.time()
+        self.last_mouse_pos = pyautogui.position()
         while True:
-            if keyboard.is_pressed("f"):
+            if self._should_quit or self._should_reset:
                 break
+
             current_mouse_pos = pyautogui.position()
             if self.last_mouse_pos is not None:
 
@@ -202,39 +215,70 @@ class snapchat:
                     self.print_console("Mouse moved. Script paused. Press F to resume, R to reset, or Q to quit.", status="Paused")
                 
                     while self.paused:
-                        if keyboard.is_pressed("f"):
-                    
-                            time.sleep(0.5)
-                            self.paused = False
-                            self.print_console("Resuming script.", status="Resuming")
-                            break
-                        elif keyboard.is_pressed("r"):
-                            time.sleep(0.5)
-                            self.paused = False
-                            self._should_reset = True
-                            self.print_console("Resetting script...", status="Console")
-                            break
-                        elif keyboard.is_pressed("q"):
-                            time.sleep(0.5)
-                            self.paused = False
-                            self._should_quit = True
-                            self.print_console("Quitting script...", status="Console")
-                            break
                         time.sleep(0.1) 
             self.last_mouse_pos = current_mouse_pos
 
             
             if not self.paused:
-                self.send_snap(shortcut_users)
-                time.sleep(self.post_snap_delay) 
+                
+                
+                if not self.send_snap(shortcut_users): 
+                    continue 
+                
+                if not self.interruptible_sleep(self.post_snap_delay):
+                    continue 
+                self.last_mouse_pos = pyautogui.position() 
+            else:
+                
+                time.sleep(0.1) 
 
             
-            if self._should_quit or self._should_reset:
-                break #
-
         self.print_console(f"Finished sending {self.sent_snaps} snaps.")
 
+    def interruptible_sleep(self, duration):
+        start_time = time.time()
+        while time.time() - start_time < duration:
+            if self._should_quit or self._should_reset or self.paused:
+                return False  
+            time.sleep(0.05)  
+        return True  
+
+    def global_pause(self):
+        if not self.paused:
+            self.paused = True
+            self.print_console("Global pause hotkey (CTRL+Q) detected. Script paused. Press F to resume, R to reset, or Q to quit.", status="Paused")
+
+    def resume_script(self):
+        if self.paused:
+            time.sleep(0.1) 
+            self.paused = False
+            self.print_console("Resuming script.", status="Resuming")
+            self.last_mouse_pos = pyautogui.position() 
+            
+            while keyboard.is_pressed("f"):
+                time.sleep(0.05)
+
+    def reset_script(self):
+        if self.paused:
+            time.sleep(0.1) 
+            self.paused = False
+            self._should_reset = True
+            self.print_console("Resetting script...", status="Console")
+
+    def quit_script(self):
+        if self.paused:
+            time.sleep(0.1) 
+            self.paused = False
+            self._should_quit = True
+            self.print_console("Quitting script...", status="Console")
+
 obj = snapchat()
+
+
+keyboard.add_hotkey('ctrl+q', obj.global_pause)
+keyboard.add_hotkey('f', obj.resume_script)
+keyboard.add_hotkey('r', obj.reset_script)
+keyboard.add_hotkey('q', obj.quit_script)
 
 while True:
     obj.main()
