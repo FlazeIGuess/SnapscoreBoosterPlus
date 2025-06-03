@@ -12,6 +12,13 @@ Boost your Snapchat Snapscore with ease using this automation script.
 * Snap counter included
 
 ---
+## Script controls
+   - Move mouse → Pause  
+   - Press **CTRL+Q** → Pause (global hotkey, works anytime)
+   - Press **F** while paused → Resume  
+   - Press **R** while paused → Restart calibration  
+   - Press **Q** while paused → Quit (works only when paused)
+   - Press **CTRL+C** → Force quit (works anytime by closing console or sending interrupt signal)
 
 ## 🚀 Quick Start Options
 
@@ -83,14 +90,6 @@ These alternatives are easier to set up than emulators and work well for simple 
    - Stay on the *Chats* screen in Snapchat  
    - Hover the mouse over each button (Camera, Snap, Send To, Shortcut, Select All, Send) and press **F** to record positions  
    - Enter recipient count, click delay (ms), and rest delay (s)
-
-10. **Script controls**
-   - Move mouse → Pause  
-   - Press **CTRL+Q** → Pause (global hotkey, works anytime)
-   - Press **F** while paused → Resume  
-   - Press **R** while paused → Restart calibration  
-   - Press **Q** while paused → Quit (works only when paused)
-   - Press **CTRL+C** → Force quit (works anytime by closing console or sending interrupt signal)
 
 ---
 
