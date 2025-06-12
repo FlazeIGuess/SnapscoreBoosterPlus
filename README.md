@@ -32,7 +32,7 @@ Choose the setup method that suits you best:
 ### 🌐 Option 1: Snapchat Web or Microsoft Store App (Simple & Accessible)
 
 1. **Download this script**  
-   Clone the repo or [download it as ZIP](https://github.com/FlazeIGuess/SnapscoreBoosterPlus/releases/tag/Release) and extract it.
+   Clone the repo or [download it as ZIP]([https://github.com/FlazeIGuess/SnapscoreBoosterPlus/releases/tag/Release](https://github.com/FlazeIGuess/SnapscoreBoosterPlus/releases)) and extract it.
 
 2. **Install Python 3.9**  
    [Download for Windows](https://www.python.org/ftp/python/3.9.2/python-3.9.2-amd64.exe)  
