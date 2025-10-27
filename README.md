@@ -2,6 +2,7 @@
 
 Boost your Snapchat Snapscore with ease using this automation script.
 
+# FOR EVERYONE WHO DON'T KNOW HOW TO USE IT JUST TEXT ME, FOR A COFFE AND A BAGEL I'LL DO IT FOR YOU :)
 ---
 ## ✨ Features
 
